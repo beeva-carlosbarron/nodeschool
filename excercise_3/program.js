@@ -1,6 +1,12 @@
-function sum(arr) {
-	var a = arr.slice(2, arr.length);
-	return a.reduce((a,b)=> Number(a)+Number(b), 0);
+var fs         = require('fs');
+var pathToFile = process.argv[2];
+
+function getLines(pathToFile) {
+
+	var fileContent = fs.readFileSync(pathToFile, 'utf8');
+	var lines       = fileContent.split('\n').length - 1;
+
+	return lines; 
 }
 
-console.log(sum(process.argv));
+console.log(getLines(pathToFile));
