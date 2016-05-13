@@ -1,12 +1,7 @@
-var fs         = require('fs');
-var pathToFile = process.argv[2];
+var fs = require('fs');
 
-function getLines(pathToFile) {
-
-	var fileContent = fs.readFileSync(pathToFile, 'utf8');
-	var lines       = fileContent.split('\n').length - 1;
-
-	return lines; 
-}
-
-console.log(getLines(pathToFile));
+fs.readFile(process.argv[2], 'utf8', function (err, data) {
+	console.log(process.argv[2]);
+  if (err) throw err;
+  console.log(data.split('\n').length - 1);
+});
