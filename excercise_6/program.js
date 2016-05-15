@@ -1,11 +1,16 @@
-var fileReader = require('./fileReader'),
-			 pathDir = process.argv[2],
-			 extension = process.argv[3];
+(function(){
+	'use strict';
 
-fileReader(pathDir, extension, function(err, data) {
+	var fileReader = require('./fileReader'),
+			pathDir = process.argv[2],
+			extension = process.argv[3];
 
-	if(err) throw err;
+	fileReader(pathDir, extension, function(err, data) {
 
-	data.forEach((fileExtension) => {console.log(fileExtension)});
+		if(err) {throw err;}
 
-});
+		data.forEach((fileExtension) => {console.log(fileExtension);});
+
+	});
+
+}());

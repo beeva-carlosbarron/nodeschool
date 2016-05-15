@@ -1,14 +1,20 @@
-var fs = require('fs');
-var path = require('path');
+(function(){
+  
+  'use strict';
+
+  var fs = require('fs');
+  var path = require('path');
 
 
-module.exports = function (dirName, extension, callback){
+  module.exports = function (dirName, extension, callback){
 
-  fs.readdir(dirName, function(err, data) {
+    fs.readdir(dirName, function(err, data) {
 
-    if (err) callback(err);
+      if (err) {callback(err);}
 
-    callback(null, data.filter((file) => path.extname(file) === '.' + extension));
-  });
+      callback(null, data.filter((file) => path.extname(file) === '.' + extension));
+    });
 
-};
+  };
+
+}());
